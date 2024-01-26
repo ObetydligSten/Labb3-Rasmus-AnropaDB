@@ -5,14 +5,15 @@ namespace Labb3_Rasmus_AnropaDB
 {
     internal class Program
     {
-        static void Main(string[] args)
+    static void Main(string[] args)
         {
             using Labb3DBContext context = new Labb3DBContext();
 
+
             bool program = true;
-            while (program == true)
+            while (program)
             {
-                Console.Clear();
+                Console.Clear();                
                 Console.WriteLine("     Hämta alla elever");
                 Console.WriteLine("     Hämta alla elever i en klass");
                 Console.WriteLine("     Lägg till ny personal");
@@ -40,6 +41,7 @@ namespace Labb3_Rasmus_AnropaDB
                     }
 
                     Console.SetCursorPosition(0, cursorPos);
+                    
                     Console.Write("-->");
                 } while (navigator.Key != ConsoleKey.Enter);
 
@@ -84,16 +86,13 @@ namespace Labb3_Rasmus_AnropaDB
 
                         switch (cursorPos2)
                         {
-                            case 1: //Stigande Förnamn
+                            case 1: //Stigande Förnamn                               
                                 var student = context.TblStudents.OrderBy(s => s.FirstName);
                                 
                                 foreach(TblStudent st in student)
                                 {
-                                    Console.WriteLine($"Name : {st.FirstName} {st.LastName}");  
-                                    Console.WriteLine($"Klass : {st.Klass}");
-                                    Console.WriteLine($"StudentID : {st.StudentId}");
-                                    Console.WriteLine($"Personnr : {st.Personnr}");
-                                    Console.WriteLine(new string ('-',20));
+                                    Console.WriteLine($"Klass : {st.Klass} - Name : {st.FirstName} {st.LastName}");
+                                    Console.WriteLine(new string('-', 20));
                                 }
                                 Console.WriteLine("Press Enter to return to menu. . .");
                                 Console.ReadKey();
@@ -139,11 +138,7 @@ namespace Labb3_Rasmus_AnropaDB
                                 Console.WriteLine("Går tillbaka till menyn. . .");
                                 Thread.Sleep(1000);
                                 break;
-                        }
-
-                        //Console.WriteLine($"Klass : {st.Klass} - Name : {st.FirstName} {st.LastName}");
-                        //Console.WriteLine(new string('-', 20));
-
+                        }                       
                         break;
 
                     case 1: //Hämta alla elever i en klass                       

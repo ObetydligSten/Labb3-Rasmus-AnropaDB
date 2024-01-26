@@ -5,7 +5,7 @@ select * from tblPersonal where Befattning = 'Lärare'
 select * from tblPersonal
 
 ---Visar alla betyg satta senaste månaden, ändra datumet till det datum du vill se ifrån---
-select * from tblBetyg where Betygsdatum > '2023-12-24'
+select * from tblBetyg where Betygsdatum > '2023-12-26'
 
 
 create view vWKursBetygSnittMaxMin
